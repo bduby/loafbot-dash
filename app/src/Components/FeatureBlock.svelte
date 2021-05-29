@@ -8,7 +8,7 @@
 
 <div class="content-block">
     <h2>{header}</h2>
-    <a href="/#/commands"><img src={image} alt={imageAlt} width=180px height=180px></a>
+    <a href="/#/commands"><img src={image} alt={imageAlt} width=180px height=180px></a>z
 </div>
 
 <style>
@@ -25,6 +25,7 @@
 .content-block img:hover{
     width: 400px;
     height: 400px;
+    filter: brightness(120%);
 }
 
 .content-block{

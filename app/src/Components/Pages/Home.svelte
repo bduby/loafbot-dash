@@ -8,9 +8,10 @@
         <h2>Discord Economy Bot</h2>
         <h2>With Bread</h2>
         <div class="features">
-            <FeatureBlock header="Strong Fishing System" image="\resources\images\fish-loaf.png" imageAlt="Loaf of bread with fish"/>
+            <FeatureBlock header="Fishing System" image="\resources\images\fish-loaf.png" imageAlt="Loaf of bread with fish"/>
             <FeatureBlock header="Economy System" image="\resources\images\loaf-piggy-bank.png" imageAlt="Piggy Bank Loaf"/>
-            <FeatureBlock header="Shop System" imageAlt="bread behind shopfront"/>
+            <FeatureBlock header="Shop System" image="\resources\images\loaf-shop.png" imageAlt="bread behind shopfront"/>
+            <FeatureBlock header="Bakery" image="\resources\images\loaf-oven.png" imageAlt="bread in oven"/>
         </div>
     </div>
 </main>
