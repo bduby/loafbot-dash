@@ -11,5 +11,6 @@
 <style>
     h1 {
         color:whitesmoke;
+        margin: 24px;
     }
 </style>
