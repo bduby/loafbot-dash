@@ -23,8 +23,8 @@
 }
 
 .content-block img:hover{
-    width: 400px;
-    height: 400px;
+    width: 325px;
+    height: 325px;
     filter: brightness(120%);
 }
 
