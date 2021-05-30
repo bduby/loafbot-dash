@@ -2,13 +2,14 @@
     export let header = "placeholder block";
     export let image = "#";
     export let imageAlt = "Image Alt"
+    export let link = "";
 
 </script>
 
 
 <div class="content-block">
     <h2>{header}</h2>
-    <a href="/#/commands"><img src={image} alt={imageAlt} width=180px height=180px></a>z
+    <a href="/#/commands/{link}"><img src={image} alt={imageAlt} width=180px height=180px></a>
 </div>
 
 <style>
@@ -18,13 +19,13 @@
     border-radius: 27px 27px 27px 27px;
     -moz-border-radius: 27px 27px 27px 27px;
     -webkit-border-radius: 27px 27px 27px 27px;
-    border: 1px solid #000000;
+    border: 2px solid #000000;
     transition-duration:0.4s;
 }
 
 .content-block img:hover{
-    width: 325px;
-    height: 325px;
+    width: 225px;
+    height: 225px;
     filter: brightness(120%);
 }
 

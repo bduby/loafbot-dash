@@ -5,6 +5,10 @@
 	import About from './Components/Pages/About.svelte'
 	import Home from './Components/Pages/Home.svelte'
 
+	import Currency from './Components/Pages/CommandGroup_Pages/Currency.svelte'
+	import Bakery from './Components/Pages/CommandGroup_Pages/Bakery.svelte'
+	import Shop from './Components/Pages/CommandGroup_Pages/Shop.svelte'
+
 </script>
 <body>
 	<header>
@@ -24,7 +28,10 @@
 		<Router routes={{
 			'/': Home,
 			'/commands': Commands,
-			'/about': About
+			'/about': About,
+			'/commands/currency': Currency,
+			'/commands/bakery': Bakery,
+			'/commands/shop': Shop
 		}} />
 	</div>
 </body>
