@@ -13,8 +13,8 @@
         <div class="features">
             <FeatureBlock header="Fishing System" image="\resources\images\fish-loaf.png" imageAlt="Loaf of bread with fish" link="currency"/>
             <FeatureBlock header="Economy System" image="\resources\images\loaf-piggy-bank.png" imageAlt="Piggy Bank Loaf" link="currency"/>
-            <FeatureBlock header="Shop System" image="\resources\images\loaf-shop.png" imageAlt="bread behind shopfront"/>
-            <FeatureBlock header="Bakery" image="\resources\images\loaf-oven.png" imageAlt="bread in oven"/>
+            <FeatureBlock header="Shop System" image="\resources\images\loaf-shop.png" imageAlt="bread behind shopfront" link="shop"/>
+            <FeatureBlock header="Bakery" image="\resources\images\loaf-oven.png" imageAlt="bread in oven" link="bakery"/>
         </div>
         <div class="contributing">
             <button on:click={() => window.open("https://github.com/LoafOfCode/loafbot-dash", "_newtab" )}>Star/Contribute</button>
