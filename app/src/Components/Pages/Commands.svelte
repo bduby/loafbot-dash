@@ -9,7 +9,7 @@
             <FeatureBlock header="Bakery" image="\resources\images\loaf-oven.png" imageAlt="bread in oven" link="bakery"/>
             <FeatureBlock header="Misc" image="#" imageAlt="Bread With Wrench" link="misc"/>
             <FeatureBlock header="Casino" image="#" imageAlt="Bread Casino" link="casino"/>
-            <FeatureBlock header="Fun" image="#" imageAlt="Bread With Party Hat" link="fun"/>
+            <FeatureBlock header="Fun" image="\resources\images\loaf-party.png" imageAlt="Bread With Party Hat" link="fun"/>
         </div>
 </main>
 
