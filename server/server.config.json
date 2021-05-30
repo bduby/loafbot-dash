@@ -1,4 +1,0 @@
-{
-    "LISTENING_PORT": 3000,
-    "MONGO_URL": "mongodb+srv://loafofcode:minecraft3503@loafbot.xc2gy.mongodb.net/LoafBot?retryWrites=true&w=majority"
-}
