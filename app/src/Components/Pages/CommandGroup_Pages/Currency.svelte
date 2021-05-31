@@ -38,7 +38,7 @@
         commandName="Loaf"
         aliases={[]}
         description="Search the deep depths of the oven to find loafs undiscovered by man, it could be something normal like bread, or even more. PLEASE NOTE This is unrelated from the bakery, they are two separate entities and operate differently"
-        usage="bred fish"
+        usage="bred loaf"
         />
         <Command 
         commandName="Collection"

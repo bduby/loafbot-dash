@@ -14,10 +14,10 @@
 </main>
 
 <style>
- *{
+    *{
         font-family: 'Noto Sans JP', sans-serif;
     }
-     .features{
+    .features{
         text-align: center;
     }
 </style>

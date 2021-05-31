@@ -5,8 +5,8 @@
 <main>
     <div class="command-wrapper">
         <Command 
-        commandName="Balance"
-        aliases={['Bal']}
+        commandName="Bakery"
+        aliases={[]}
         description="Gets the users bakery, the bakery has a whole list of subcommands you can run (bred bakery [subcommand]), subcommands are stated below"
         usage="bred bakery"
         />
