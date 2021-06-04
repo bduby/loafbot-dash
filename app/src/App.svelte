@@ -50,9 +50,11 @@
 							<img id="user_avatar" src="https://cdn.discordapp.com/avatars/{profileData.user.UserID}/{profileData.user.avatar}" alt = "." width=48>
 							<div class="account_username">
 								<span id="username">{profileData.user.username}</span>
+								<span class="material-icons">
+									expand_more
+									</span>
 							</div>
 						</div>
-						<button id="logout_button" on:click={logout}>Logout</button>
 					{/if}
 				</div>
 		</nav>
@@ -73,6 +75,7 @@
 </body>
 
 <style>
+	@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 	* {
 		box-sizing: border-box;
 		color:whitesmoke;
@@ -110,18 +113,31 @@
 		font-size: 20px;
 	}
 
-	#profile, #logout_button {
-		position: relative;
+	#profile {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #1f1f1f;
     padding: 10px;
     border-radius: 10px; 	
+		margin-bottom: 10px;
+		margin-top: 10px;
+	}
+	.desktop_nav_right button{
+    background: #1f1f1f;
+    padding: 10px;
+    border-radius: 10px; 	
+	}
+	.desktop_nav_right button:hover{
+		background-color:#b00715; 
+		color: black;
+		box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
 	}
 
 	.desktop_nav_right {
-		margin-left: 20px;
+		display: flex;
+    justify-content: center;
+    align-items: center;
 	}
 
 	.desktop_nav_right img{
@@ -140,8 +156,5 @@
 		margin: 5px;
 		padding: 5px;
 	}
-
-
-
-
+	
 </style>

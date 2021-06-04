@@ -25,7 +25,7 @@ const apiRoute = require('./routes/api');
 
 
 app.use(cors({ 
-    origin: [`http://localhost:59879`],
+    origin: [`http://localhost:51900`],
     credentials: true
 }))
 app.use(session({ 

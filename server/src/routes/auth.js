@@ -4,7 +4,7 @@ const passport = require('passport');
 router.get('/discord', passport.authenticate('discord'))
 
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) =>{
-    res.redirect('http://localhost:59879/#/')
+    res.redirect('http://localhost:51900/#/')
 })
 
 router.get('/', (req, res) =>{
@@ -25,7 +25,7 @@ router.get('/forbidden', (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.logout()
-    res.redirect('http://localhost:59879/#/')
+    res.redirect('http://localhost:51900/#/')
 })
 
 module.exports = router

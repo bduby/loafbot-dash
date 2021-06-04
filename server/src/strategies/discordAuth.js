@@ -1,6 +1,6 @@
 const DiscordStrategy = require(`passport-discord`).Strategy;
 const passport = require('passport');
-const {CLIENT_ID, CLIENT_SECRET, AUTH_REDIR, SUPABASE} = require('../server.config.json')
+const {CLIENT_ID, CLIENT_SECRET, AUTH_REDIR} = require('../server.config.json')
 const UserSchema = require('../../models/User');
 const chalk = require('chalk');
 const DiscordUser = require('../../models/User')
