@@ -1,34 +1,70 @@
 <script>
+	import axios from 'axios'
+	import {LISTENING_PORT} from '../../server/src/server.config.json'
+
 	import Router from 'svelte-spa-router';
 
-	import Commands from './Components/Pages/Commands.svelte'
-	import About from './Components/Pages/About.svelte'
-	import Home from './Components/Pages/Home.svelte'
+	import Commands from './Pages/Commands.svelte'
+	import About from './Pages/About.svelte'
+	import Home from './Pages/Home.svelte'
+	import Profile from './Pages/Profile.svelte'
 
-	import Currency from './Components/Pages/CommandGroup_Pages/Currency.svelte'
-	import Bakery from './Components/Pages/CommandGroup_Pages/Bakery.svelte'
-	import Shop from './Components/Pages/CommandGroup_Pages/Shop.svelte'
+	import Currency from './Pages/Currency.svelte'
+	import Bakery from './Pages/Bakery.svelte'
+	import Shop from './Pages/Shop.svelte'
+	
+	let isAuthed = false;
+	let profileData;
+
+	function login() {window.location = "http://localhost:3000/auth/discord"}
+	function logout() {window.location = "http://localhost:3000/auth/logout"}
+
+	axios.get(`http://localhost:${LISTENING_PORT}/auth`, {withCredentials: true})
+		.then(({data}) =>{
+			if(data){
+				isAuthed = true;
+				profileData = data;
+				console.log(profileData)
+			}
+		})
+		.catch(err =>{
+			isAuthed = false;
+		})
 
 </script>
 <body>
-	<header>
-		<div class="nav-container">
-			<ul class="nav_routes">
-				<li><a href="/#/">Home</a></li>
-				<li><a href="/#/commands">Commands</a></li>
-				<li><a href="/#/about">About</a></li>
-			</ul>
-		</div>
-			<a class="invite-btn" href="https://discord.com/login?redirect_to=%2Foauth2%2Fauthorize%3Fclient_id%3D739231799598907563%26scope%3Dbot%26permissions%3D8">
-				<button>Invite</button>
-			</a>
-	</header>
+	<div class="nav_wrapper">
+		<nav class="desktop_nav_container">
+				<div class="desktop_nav_left">
+					<ul class="desktop_nav_routes">
+						<li><a href="/#/">Home</a></li>
+						<li><a href="/#/commands">Commands</a></li>
+						<li><a href="/#/about">About</a></li>
+					</ul>
+				</div>
+				<div class="desktop_nav_right">
+					{#if isAuthed != true}
+					<button on:click={login}>Login</button>
+					{:else}
+						<div id="profile">
+							<img id="user_avatar" src="https://cdn.discordapp.com/avatars/{profileData.user.UserID}/{profileData.user.avatar}" alt = "." width=48>
+							<div class="account_username">
+								<span id="username">{profileData.user.username}</span>
+							</div>
+						</div>
+						<button id="logout_button" on:click={logout}>Logout</button>
+					{/if}
+				</div>
+		</nav>
+	</div>
+
 
 	<div class="content">
 		<Router routes={{
 			'/': Home,
 			'/commands': Commands,
 			'/about': About,
+			'/profile': Profile,
 			'/commands/currency': Currency,
 			'/commands/bakery': Bakery,
 			'/commands/shop': Shop
@@ -39,52 +75,73 @@
 <style>
 	* {
 		box-sizing: border-box;
+		color:whitesmoke;
+	}
+
+	body {
 		margin: 0;
 		padding: 0;
 		background-color:#2b2b2b;
 	}
-	li, a, button{
-		font-weight: 500;
-		font-size: 16px;
-		color: #dedbd5;
-		text-decoration: none;
+
+	.desktop_nav_container {
 		background-color: #1c1919;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 25px;
 	}
-	header {
+	.desktop_nav_left {
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 30px 10px;
-		background-color: #1c1919;
+    justify-content: center;
+    align-items: center;
 	}
-	.nav_routes {
-		list-style-type: none;
-		background-color: #1c1919;
+
+	.desktop_nav_routes {
+		display: block;
 	}
-	.nav_routes li {
-		display: inline-block;
-		padding: 0px 20px;
-		background-color: #1c1919;
+
+	.desktop_nav_routes li {
+		list-style: none;
+    display: inline-block;
+		padding: 5px;
+		font-size: 20px;
 	}
-	
-	.nav_routes li a:hover {
-		color: whitesmoke;
+
+	#profile, #logout_button {
+		position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1f1f1f;
+    padding: 10px;
+    border-radius: 10px; 	
 	}
-	@keyframes button-radius-animation {
-  100% {border-radius: 15px; background-color:whitesmoke; color: black}
-}
-	button {
-		padding: 10px 25px;
-		background-color: rgba(41, 43, 41, 0.50);
-		border: none;
-		border-radius: 100px;
-		transition-duration: 0.5s;
+
+	.desktop_nav_right {
+		margin-left: 20px;
 	}
-	button:hover {
-		border-radius: 2px; 
-		background-color:whitesmoke; 
-		color: black;
-		box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
+
+	.desktop_nav_right img{
+		margin-right: 5px;
+		border-radius: 5px;
 	}
+
+	.desktop_nav_right .account_username {
+		display: flex;
+    justify-content: center;
+    align-items: center;
+	}
+	.desktop_nav_right span {
+		font-size: 25px;
+		color:whitesmoke;
+		margin: 5px;
+		padding: 5px;
+	}
+
+
+
 
 </style>

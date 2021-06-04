@@ -4,15 +4,18 @@
   "description": "server for loafbot-dash",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "dev": "nodemon ./src/server.js"
   },
   "author": "LoafOfCode",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.12.12"
+    "express-session": "^1.17.2",
+    "mongoose": "^5.12.12",
+    "passport": "^0.4.1",
+    "passport-discord": "^0.1.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

@@ -1,5 +1,5 @@
 <script>
-    import FeatureBlock from '../../Components/FeatureBlock.svelte';
+    import FeatureBlock from '../Components/FeatureBlock.svelte';
     function redirect(link) {
         window.location.href = link
     }
@@ -18,7 +18,7 @@
         </div>
         <div class="contributing">
             <button on:click={() => window.open("https://github.com/LoafOfCode/loafbot-dash", "_newtab" )}>Star/Contribute</button>
-            <button on:click={() => {window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_newtab')}}>Out Of Order</button>
+            <button on:click={() => {window.open("https://top.gg/bot/739231799598907563")}}>Vote For LoafBot</button>
         </div>
     </div>
 </main>

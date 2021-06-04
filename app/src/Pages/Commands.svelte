@@ -1,5 +1,5 @@
 <script>
-    import FeatureBlock from '../../Components/FeatureBlock.svelte';
+    import FeatureBlock from '../Components/FeatureBlock.svelte';
 </script>
 
 <main>

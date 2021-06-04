@@ -1,5 +1,5 @@
 <script>
-    import Command from "../../Command.svelte"
+    import Command from "../Components/Command.svelte"
 </script>
 
 <main>
@@ -44,10 +44,6 @@
 </main>
 
 <style>
-    .command-wrapper h1, h2{
-        margin: 0px;
-        color: whitesmoke;
-    }
     .command-wrapper{
         align-items: center;
         padding: 10px;
