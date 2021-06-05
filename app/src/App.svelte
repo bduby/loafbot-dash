@@ -20,6 +20,7 @@
 
 	function login() {window.location = "http://localhost:3000/auth/discord"}
 	function logout() {window.location = "http://localhost:3000/auth/logout"}
+	function redir(link) {window.location = link}
 
 	function changeDropdownState() {
 		dropDownClicked = !dropDownClicked;
@@ -67,8 +68,8 @@
 							{#if dropDownClicked == true}
 							<div class="desktop-dropdown_container">
 								<ul class="desktop_dropdown">
-									<li><a href="/#/profile" on:click={changeDropdownState}>Profile</a></li>
-									<li class="logout"><a href="#" on:click={logout}>Logout</a></li>
+									<li on:click={() => redir('#/profile')}>Profile</li>
+									<li class="logout" on:click={logout}>Logout</li>
 								</ul>
 							</div>
 							{/if}
