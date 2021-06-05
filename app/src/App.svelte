@@ -58,9 +58,9 @@
 							<div class="account_username">
 								<span id="username">{profileData.user.username}</span>
 								{#if dropDownClicked != false}
-								<span class="material-icons">expand_less</span>
+								<span class="material-icons" style="cursor:pointer;">expand_less</span>
 								{:else}
-								<span class="material-icons">expand_more</span>
+								<span class="material-icons" style="cursor:pointer;">expand_more</span>
 								{/if}
 
 							</div>
