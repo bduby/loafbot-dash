@@ -12,12 +12,18 @@
 	import Currency from './Pages/Currency.svelte'
 	import Bakery from './Pages/Bakery.svelte'
 	import Shop from './Pages/Shop.svelte'
+
 	
 	let isAuthed = false;
+	let dropDownClicked = false;
 	let profileData;
 
 	function login() {window.location = "http://localhost:3000/auth/discord"}
 	function logout() {window.location = "http://localhost:3000/auth/logout"}
+
+	function changeDropdownState() {
+		dropDownClicked = !dropDownClicked;
+	}
 
 	axios.get(`http://localhost:${LISTENING_PORT}/auth`, {withCredentials: true})
 		.then(({data}) =>{
@@ -46,20 +52,31 @@
 					{#if isAuthed != true}
 					<button on:click={login}>Login</button>
 					{:else}
-						<div id="profile">
+						<div id="profile" on:click={changeDropdownState}>
 							<img id="user_avatar" src="https://cdn.discordapp.com/avatars/{profileData.user.UserID}/{profileData.user.avatar}" alt = "." width=48>
 							<div class="account_username">
 								<span id="username">{profileData.user.username}</span>
-								<span class="material-icons">
-									expand_more
-									</span>
+								{#if dropDownClicked != false}
+								<span class="material-icons">expand_less</span>
+								{:else}
+								<span class="material-icons">expand_more</span>
+								{/if}
+
 							</div>
 						</div>
+							{#if dropDownClicked == true}
+							<div class="desktop-dropdown_container">
+								<ul class="desktop_dropdown">
+									<li><a href="/#/profile" on:click={changeDropdownState}>Profile</a></li>
+									<li class="logout"><a href="#" on:click={logout}>Logout</a></li>
+								</ul>
+							</div>
+							{/if}
 					{/if}
-				</div>
+
+				</div>	
 		</nav>
 	</div>
-
 
 	<div class="content">
 		<Router routes={{
@@ -81,11 +98,57 @@
 		color:whitesmoke;
 	}
 
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		margin:0;
+		padding: 0;
+		text-decoration: none;
+	}
+
 	body {
 		margin: 0;
 		padding: 0;
 		background-color:#2b2b2b;
+		background: #2b2b2b;
 	}
+
+	.desktop_dropdown{ 
+		position:absolute;
+		top: 58px;
+		width: 300px;
+		transform: translateX(-95%)translateY(30%);
+		background-color: #1c1919;
+		border: 2px;
+		border-radius: 8px;
+		padding: 1rem;
+		overflow: hidden;
+	}
+
+	.desktop_dropdown li {
+		height: 50px;
+		display: flex;
+		align-items: center;
+		border: 1px solid #474a4d;
+		border-radius: 8px;
+		transition: background 500ms;
+		padding: 0.5rem;
+		margin-bottom: 5px;
+	}
+
+	.desktop_dropdown li:hover {
+		background-color: #3b3a3a;
+	}
+	.desktop_dropdown .logout:hover {
+		background-color: #d41c25;
+	}
+
+
+
 
 	.desktop_nav_container {
 		background-color: #1c1919;
@@ -95,6 +158,7 @@
     align-items: center;
     box-sizing: border-box;
     padding: 0 25px;
+		
 	}
 	.desktop_nav_left {
 		display: flex;
@@ -103,7 +167,9 @@
 	}
 
 	.desktop_nav_routes {
-		display: block;
+		list-style: none;
+		margin: 0;
+		padding: 0;
 	}
 
 	.desktop_nav_routes li {
@@ -114,6 +180,7 @@
 	}
 
 	#profile {
+		position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,12 +195,6 @@
     padding: 10px;
     border-radius: 10px; 	
 	}
-	.desktop_nav_right button:hover{
-		background-color:#b00715; 
-		color: black;
-		box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
-	}
-
 	.desktop_nav_right {
 		display: flex;
     justify-content: center;
@@ -156,5 +217,5 @@
 		margin: 5px;
 		padding: 5px;
 	}
-	
+
 </style>
